@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import br.com.workshopmongo.domain.Post;
 import br.com.workshopmongo.domain.User;
 import br.com.workshopmongo.dto.AuthorDTO;
+import br.com.workshopmongo.dto.CommentDTO;
 import br.com.workshopmongo.repository.PostRepository;
 import br.com.workshopmongo.repository.UserRepository;
 
@@ -42,6 +43,13 @@ public class Instantiation implements CommandLineRunner {
 		//aninhando objeto AuthorDto dentro de Posts (a coleção POST irá trazer dentro de seu objeto um objeto AuthorDTO junto)
 		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem!", "Vou viajar para São Paulo. Abraços.", new AuthorDTO(maria));
 		Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bom dia.", "Acordei feliz hoje.", new AuthorDTO(maria));
+		
+		CommentDTO c1 = new CommentDTO("Boa viagem mano!", sdf.parse("21/03/2018"), new AuthorDTO(alex));
+		CommentDTO c2 = new CommentDTO("Aproveite!", sdf.parse("22/03/2018"), new AuthorDTO(bob));
+		CommentDTO c3 = new CommentDTO("Tenha um ótimo dia!", sdf.parse("23/03/2018"), new AuthorDTO(alex));
+		
+		post1.getComments().addAll(Arrays.asList(c1, c2));
+		post2.getComments().addAll(Arrays.asList(c3));
 		
 		postRepository.saveAll(Arrays.asList(post1, post2));
 		
