@@ -21,7 +21,7 @@ public class User implements Serializable {
 	private String name;
 	private String email;
 	
-	//referencia a lista de posts (virá lista de posts somente como referência)
+	//referencia a lista de posts (trará uma lista de posts somente como referência (ex: posts: [post1, post2]))
 	//deixar como lazy = true para que garanta que os posts só serão carregados caso explicitamente acessá-los
 	@DBRef(lazy = true)
 	private List<Post> posts = new ArrayList<>();

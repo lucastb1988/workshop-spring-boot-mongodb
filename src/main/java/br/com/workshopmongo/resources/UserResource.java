@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import br.com.workshopmongo.domain.Post;
 import br.com.workshopmongo.domain.User;
 import br.com.workshopmongo.dto.UserDTO;
 import br.com.workshopmongo.service.UserService;
@@ -65,9 +66,12 @@ public class UserResource {
 		return ResponseEntity.noContent().build();
 	}
 	
-	/*@RequestMapping(value="/{id}/posts", method=RequestMethod.GET)
- 	public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
-		User obj = service.findById(id);
+	@RequestMapping(value="/{id}/posts", method=RequestMethod.GET)
+ 	public ResponseEntity<List<Post>> findPostsByIdUser(@PathVariable String id) {
+		User obj = userService.findById(id);
+		
+		//irá carregar os posts porque foi chamado explicitamente, 
+		//senão não seria carregado pois foi anotado como lazy = true
 		return ResponseEntity.ok().body(obj.getPosts());
-	}*/
+	}
 }
