@@ -9,6 +9,7 @@ import java.util.TimeZone;
 
 public class URL {
 
+	//método para retornar String decodificado (titulo)
 	public static String decodeParam(String text) {
 		try {
 			return URLDecoder.decode(text, "UTF-8");
