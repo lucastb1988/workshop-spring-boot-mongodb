@@ -18,6 +18,7 @@ public class URL {
 		}
 	}
 	
+	//metodo para converter data String em Date / (defaultValue) se não for especificado utiliza um valor default de data
 	public static Date convertDate(String textDate, Date defaultValue) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
