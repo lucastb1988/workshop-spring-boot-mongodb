@@ -9,6 +9,11 @@ import org.springframework.stereotype.Repository;
 
 import br.com.workshopmongo.domain.Post;
 
+//referencias
+//https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/
+//https://docs.spring.io/spring-data/data-document/docs/current/reference/html/
+//https://docs.mongodb.com/manual/reference/operator/query/gte/#op._S_gte
+
 @Repository
 public interface PostRepository extends MongoRepository<Post, String> { //<Post, tipo do id da classe User(String)>
 

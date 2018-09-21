@@ -27,7 +27,7 @@ public class PostService {
 	}
 	
 	public List<Post> fullSearch(String text, Date minDate, Date maxDate) {
-		//como é um timeStamp pesquisa a maxDate pelas 24 horas do dia
+		//como é um timeStamp pesquisa a maxDate pelas 24 horas do dia + soma com milissegundos x 24 horas
 		maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000);
 		
 		return postRepository.fullSearch(text, minDate, maxDate);
